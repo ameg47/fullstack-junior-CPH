@@ -89,7 +89,7 @@ export default function Home(){
       }
     }
 
-    return(
+    if(jobs && filters)return(
         <div className='bg-gray-100 md:px-4'>
             <form onSubmit={clickSearch} className="w-full">
               <label>
@@ -246,5 +246,10 @@ export default function Home(){
                 </div>
             </div>
         </div>
+    )
+    else return(
+      <div className='bg-gray-100 h-screen flex justify-center'>
+        <div className='bg-white p-6 h-fit self-center rounded-lg text-2xl'>Loading</div>
+      </div>
     )
 }
