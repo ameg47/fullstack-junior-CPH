@@ -207,33 +207,38 @@ export default function Home(){
                   </div>
                 </div>
                 <div className='col-span-4 bg-white '>
-                  <div className='py-4 px-4 hidden md:flex justify-end'>
-                    <span className='text-gray-500 mr-3'>Sort by</span>
-                    <select onChange={changeSort} name="loc" className='appearance-none px-2'>
-                      <option value="">Location</option>
-                      <option value="locasc">Location &#x2191;</option>
-                      <option value="locdes">Location &#x2193;</option>
-                    </select>
-                    <select onChange={changeSort} name="role" className='appearance-none px-2'>
-                      <option value="">Role</option>
-                      <option value="roleasc">Role &#x2191;</option>
-                      <option value="roledes">Role &#x2193;</option>
-                    </select>
-                    <select onChange={changeSort} name="dep" className='appearance-none px-2'>
-                      <option value="">Department</option>
-                      <option value="depasc">Department &#x2191;</option>
-                      <option value="depdes">Department &#x2193;</option>
-                    </select>
-                    <select onChange={changeSort} name="exp" className='appearance-none px-2'>
-                      <option value="">Experience</option>
-                      <option value="expasc">Experience &#x2191;</option>
-                      <option value="expdes">Experience &#x2193;</option>
-                    </select>
+                  <div className='flex flex-row justify-between px-4 py-6'>
+                    <div className=''>
+                      <p><span className='font-semibold'>7,753</span> job postings</p>
+                    </div>
+                    <div className='hidden md:flex '>
+                      <span className='text-gray-500 mr-3'>Sort by</span>
+                      <select onChange={changeSort} name="loc" className='appearance-none px-2'>
+                        <option value="">Location</option>
+                        <option value="locasc">Location &#x2191;</option>
+                        <option value="locdes">Location &#x2193;</option>
+                      </select>
+                      <select onChange={changeSort} name="role" className='appearance-none px-2'>
+                        <option value="">Role</option>
+                        <option value="roleasc">Role &#x2191;</option>
+                        <option value="roledes">Role &#x2193;</option>
+                      </select>
+                      <select onChange={changeSort} name="dep" className='appearance-none px-2'>
+                        <option value="">Department</option>
+                        <option value="depasc">Department &#x2191;</option>
+                        <option value="depdes">Department &#x2193;</option>
+                      </select>
+                      <select onChange={changeSort} name="exp" className='appearance-none px-2'>
+                        <option value="">Experience</option>
+                        <option value="expasc">Experience &#x2191;</option>
+                        <option value="expdes">Experience &#x2193;</option>
+                      </select>
+                    </div>
                   </div>
                     {jobs && jobs.length===0 ? 
                       <p className='text-xl text-center py-10'>No results</p>
                             :
-                      <ul className='mb-6'>
+                      <ul className='mb-6 pt-2'>
                         {jobs && jobs.map((e, index) => {
                             return(<li key={index}><JobList name={e.name} jobs={e.items}/></li>)
                         })}
