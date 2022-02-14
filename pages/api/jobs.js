@@ -23,7 +23,7 @@ export default async (req, res) => {
 
     let filteredjobs= jobsCopy.filter(elem=> elem.items.length)
 
-    await new Promise((resolve) => setTimeout(resolve, 10000 * Math.random()))
+    await new Promise((resolve) => setTimeout(resolve, 1000 * Math.random()))
 
     return res.json({jobs:filteredjobs})
   }

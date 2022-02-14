@@ -11,7 +11,9 @@ export default function JobList ({name, jobs}){
     return(
         <div className="px-6 py-2 hover:cursor-pointer" >
             <div className="flex" onClick={show}>
-                <div className="bg-gray-300 w-8 p-1 mr-2 rounded-lg text-white font-medium text-lg">LO</div>
+                <div className="bg-gray-300 w-9 h-9 p-1 mr-2 rounded-lg text-white font-medium text-lg flex justify-center">
+                    <p>{name.slice(0, 2).toUpperCase()}</p>
+                </div>
                 <p className="flex self-center">{jobs.length} jobs for {name}</p>
             </div>
             <div className={`${showList ? "grid grid-cols-1 divide-y" : "hidden"}`}>

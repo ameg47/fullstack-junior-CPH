@@ -8,7 +8,7 @@ export default function Home(){
     const[filters, setFilters]=useState()
     const[search, setSearch]= useState()
     const[query, setQuery]= useState({type:"",dep:"",exp:"",sched:"", search:""})
-    const[sort, setSort]= useState({loc:"",role:"",dep:"",exp:""})
+    const[sort, setSort]= useState({loc:"", role:"",exp:"",dep:""})
     const[showModal, setShowModal] = useState(false);
     
   
@@ -74,15 +74,18 @@ export default function Home(){
     const changeSort= (e)=>{
       let {name, value}= e.target
       setSort({...sort, [name]:value})
-      for(let key in sort){
-        if(sort[key] && key!==name){
-          jobs.forEach(e=>e.items.sort(SortFunc[sort[key]]))
-        }
-      }
+
+      if(sort.role)jobs.forEach(e=>e.items.sort(SortFunc[sort.role]))
       if(value==="locasc")jobs.sort(locasc)
       if(value==="locdes")jobs.sort(locdes)
       else{
         jobs.forEach(e=>e.items.sort(SortFunc[value]))
+      }
+      
+      for(let key in sort){
+        if(key!=="role" && key!==name){
+          jobs.forEach(e=>e.items.sort(SortFunc[sort[key]]))
+        }
       }
     }
 
