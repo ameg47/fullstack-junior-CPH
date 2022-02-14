@@ -1,6 +1,12 @@
+import Footer from "../components/Footer"
+import Home from "../components/Home"
+import Nav from "../components/Nav"
+
 const Index = () => (
-  <p>
-Hello, Clipboard health!
-  </p>
+  <>
+    <Nav />
+    <Home />
+    <Footer />
+  </>
 )
 export default Index
